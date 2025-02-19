@@ -34,32 +34,10 @@
 </head>
 <body>
     <h1>Index of HTML Files</h1>
-    <ul id="file-list"></ul>
-
-    <script>
-        async function fetchFiles() {
-            try {
-                const response = await fetch('.');
-                const text = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, 'text/html');
-                const files = Array.from(doc.querySelectorAll('a')).map(a => a.href).filter(href => href.endsWith('.html'));
-                
-                const fileList = document.getElementById('file-list');
-                files.forEach(file => {
-                    const listItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.href = file;
-                    link.textContent = file;
-                    listItem.appendChild(link);
-                    fileList.appendChild(listItem);
-                });
-            } catch (error) {
-                console.error('Error fetching file list:', error);
-            }
-        }
-
-        fetchFiles();
-    </script>
+    <ul>
+        <li><a href="ninis.html">Jóvenes "Ninis" en México</a></li>
+        <li><a href="example.html">Example File</a></li>
+        <li><a href="another_page.html">Another Page</a></li>
+    </ul>
 </body>
 </html>
